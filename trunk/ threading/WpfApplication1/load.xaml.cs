@@ -21,14 +21,6 @@ namespace WpfApplication1
     /// </summary>
     public partial class load : Window
     {
-        /*读取函数*/
-        [DllImport("calculate_point.dll", EntryPoint = "MainThread")]
-        public static extern void MainThread();
-        [DllImport("calculate_point.dll", EntryPoint = "New_GetMainPercentage")]
-        public static extern float GetMainPercentage();
-        [DllImport("calculate_point.dll", EntryPoint = "New_GetChildPercentage")]
-        public static extern float GetChildPercentage();
-
         private Thread thread;
         private bool isLoadDataFinish = false;
         private System.Windows.Threading.DispatcherTimer timer;
@@ -131,5 +123,13 @@ namespace WpfApplication1
             thread.Start();
         }
         #endregion
+
+        /*读取函数*/
+        [DllImport("calculate_point.dll", EntryPoint = "MainThread")]
+        public static extern void MainThread();
+        [DllImport("calculate_point.dll", EntryPoint = "New_GetMainPercentage")]
+        public static extern float GetMainPercentage();
+        [DllImport("calculate_point.dll", EntryPoint = "New_GetChildPercentage")]
+        public static extern float GetChildPercentage();
     }
 }
