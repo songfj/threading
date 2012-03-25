@@ -6,6 +6,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.Background>
@@ -24,14 +25,16 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            <Canvas Grid.Column="0" Grid.ColumnSpan="1"></Canvas>
-            <Canvas Grid.Column="2" x:Name="Can">
-                <Button Width="100" Height="30" Canvas.Right="50" Canvas.Bottom="100"/>
-                <Button Width="100" Height="30" Canvas.Right="50" Canvas.Bottom="50"/>
+            <Canvas Grid.Column="0" Grid.ColumnSpan="1" x:Name="Can" Background="LightCyan"/>
+            <Canvas Grid.Column="2">
+                <Button Width="100" Height="30" Canvas.Right="0" Canvas.Top="123" Content="结束演示" />
+                <Button Width="100" Height="30" Canvas.Right="0" Canvas.Top="193" Content="开始演示" Click="Button_Click" />
             </Canvas>
         </Grid>
+        <StatusBar Grid.Row="2" Height="30">
+            <StatusBarItem Content="Ready" x:Name="status"/>
+        </StatusBar>
     </Grid>
 </Window>

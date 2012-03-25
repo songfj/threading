@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace WpfApplication1
 {
@@ -20,60 +22,102 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private float lastx, lasty, currentx, currenty;
-        private bool isFirst = false;
+        private float lastx1, lasty1, currentx1, currenty1;
+        private float lastx2, lasty2, currentx2, currenty2;
+        private bool isFirst1 = true;
+        private bool isFirst2 = true;
+        private MySqlConnection conn1 = null;
+        private MySqlCommand command1 = null;
+        private MySqlDataReader reader1 = null;
+        private MySqlConnection conn2 = null;
+        private MySqlCommand command2 = null;
+        private MySqlDataReader reader2 = null;
+        DispatcherTimer timer1 = new DispatcherTimer();
+        DispatcherTimer timer2 = new DispatcherTimer();
 
         public MainWindow()
         {
             InitializeComponent();
 
-        //    load l = new load();
-        //    l.ShowDialog();
-            LoadPoint();
+            OpenDB1();
+            OpenDB2();
+            timer1.Interval = TimeSpan.FromMilliseconds(10);
+            timer1.Tick +=new EventHandler(timer_Tick1);
+            timer2.Interval = TimeSpan.FromMilliseconds(10);
+            timer2.Tick +=new EventHandler(timer_Tick2);
         }
 
-        private void LoadPoint()
+        private void timer_Tick1(object sender, EventArgs args)
         {
-            MySqlConnection conn = null;
-            MySqlCommand command = null;
-            MySqlDataReader reader = null;
+            LoadPoint1();
+        }
 
-            float rateX = (float)(this.Can.ActualWidth / 100);
-            float rateY = (float)(this.Can.ActualHeight / 120);
+        private void timer_Tick2(object sender, EventArgs args)
+        {
+            LoadPoint2();
+        }
 
+        private void LoadPoint1()
+        {
             try
             {
-                conn = new MySqlConnection("Server=localhost;User Id=root;Password='';Persist Security Info=True;Database=point");
-                command = conn.CreateCommand();
-                string sql = "select *from point1";
-                command.CommandText = sql;
-                conn.Open();
-                reader = command.ExecuteReader();
-                while (reader.Read())
+                if (!reader1.Read()) 
                 {
-                    currentx = ((float)reader[1] / 2 - 400);
-                    currenty = ((float)reader[2] / 2 + 100);
-                    if (isFirst)
-                    {
-                        isFirst = false;
-                        lastx = currentx;
-                        lasty = currenty;
-                    }
-                    else
-                    {
-                        DrawLine(lastx, lasty, currentx, currenty);
-                        //System.Threading.Thread.Sleep(1000);
-                        lastx = currentx;
-                        lasty = currenty;
-                    }
+                    timer1.Stop();
+                    CloseDB1();
                 }
-            }
+                currentx1 = (float)reader1[1];
+                currenty1 = (float)reader1[2];
+                if (isFirst1)
+                {
+                    isFirst1 = false;
+                    lastx1 = currentx1;
+                    lasty1 = currenty1;
+                }
+                else
+                {
+                    DrawLine(lastx1, lasty1, currentx1, currenty1);
+                       
+                    // System.Threading.Thread.Sleep(50);
+                    lastx1 = currentx1;
+                    lasty1 = currenty1;
+                }
+        }
             catch (MySqlException se)
             {
                 Console.WriteLine("Database operation errors : " + se.StackTrace);
-                conn.Close();
-                command = null;
-                reader.Close();
+                timer1.Stop();
+                CloseDB1();
+            }
+        }
+
+        private void LoadPoint2()
+        {
+            try
+            {
+                if (!reader2.Read())
+                {
+                    timer2.Stop();
+                    CloseDB2();
+                }
+                currentx2 = (float)reader2[1];
+                currenty2 = (float)reader2[2];
+                if (isFirst2)
+                {
+                    isFirst2 = false;
+                    lastx2 = currentx2;
+                    lasty2 = currenty2;
+                }
+                else
+                {
+                    DrawLine(lastx2, lasty2, currentx2, currenty2);
+                    lastx2 = currentx2;
+                    lasty2 = currenty2;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.ToString());
             }
         }
 
@@ -87,8 +131,61 @@ namespace WpfApplication1
             myPath.Stroke = Brushes.Black;
             myPath.StrokeThickness = 1;
             myPath.Data = line;
+            Can.Children.Add(myPath); 
+        }
 
-            Can.Children.Add(myPath);  
+        private void OpenDB1()
+        {
+            conn1 = new MySqlConnection("Server=localhost;User Id=root;Password='';Persist Security Info=True;Database=point");
+            command1 = conn1.CreateCommand();
+            string sql = "select *from point1";
+            command1.CommandText = sql;
+            conn1.Open();
+            reader1 = command1.ExecuteReader();
+        }
+
+        private void OpenDB2()
+        {
+            conn2 = new MySqlConnection("Server=localhost;User Id=root;Password='';Persist Security Info=True;Database=point");
+            command2 = conn2.CreateCommand();
+            string sql = "select *from point2";
+            command2.CommandText = sql;
+            conn2.Open();
+            reader2 = command2.ExecuteReader();
+        }
+
+        private void CloseDB1()
+        {
+            conn1.Close();
+            command1 = null;
+            reader1.Close();
+        }
+
+        private void CloseDB2()
+        {
+            conn2.Close();
+            command2 = null;
+            reader2.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            status.Content = "程序正在演示.....";
+            System.Threading.Thread sub = new System.Threading.Thread(new ThreadStart(startup1));
+            sub.Start();
+        }
+
+        /*启动函数*/
+        private void startup1()
+        {
+            timer1.Start();
+            System.Threading.Thread sub = new System.Threading.Thread(new ThreadStart(startup2));
+            sub.Start();
+        }
+
+        private void startup2()
+        {
+            timer2.Start();
         }
     }
 }
