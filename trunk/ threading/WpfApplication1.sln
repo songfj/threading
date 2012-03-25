@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfAppli
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calculate_point", "calculate_point\calculate_point\calculate_point.vcxproj", "{FF5CA37E-9FA6-452F-AA7B-F0A05AAB5F6D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Software", "Software\Software.vdproj", "{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +37,12 @@ Global
 		{FF5CA37E-9FA6-452F-AA7B-F0A05AAB5F6D}.Release|Win32.ActiveCfg = Release|Win32
 		{FF5CA37E-9FA6-452F-AA7B-F0A05AAB5F6D}.Release|Win32.Build.0 = Release|Win32
 		{FF5CA37E-9FA6-452F-AA7B-F0A05AAB5F6D}.Release|x86.ActiveCfg = Release|Win32
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Debug|Win32.ActiveCfg = Debug
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Debug|x86.ActiveCfg = Debug
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Release|Mixed Platforms.ActiveCfg = Release
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Release|Win32.ActiveCfg = Release
-		{E9CB7E94-F48D-4F14-AAFF-CD928FF072B2}.Release|x86.ActiveCfg = Release
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Debug|Win32.ActiveCfg = Debug
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Debug|x86.ActiveCfg = Debug
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Release|Mixed Platforms.ActiveCfg = Release
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Release|Win32.ActiveCfg = Release
+		{6A91D12D-6CB9-4C56-9AFB-E6B2FCC4DAA9}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

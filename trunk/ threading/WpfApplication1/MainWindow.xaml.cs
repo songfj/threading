@@ -32,8 +32,8 @@ namespace WpfApplication1
         private MySqlConnection conn2 = null;
         private MySqlCommand command2 = null;
         private MySqlDataReader reader2 = null;
-        DispatcherTimer timer1 = new DispatcherTimer();
-        DispatcherTimer timer2 = new DispatcherTimer();
+        private DispatcherTimer timer1 = new DispatcherTimer();
+        private DispatcherTimer timer2 = new DispatcherTimer();
 
         public MainWindow()
         {
@@ -78,7 +78,6 @@ namespace WpfApplication1
                 {
                     DrawLine(lastx1, lasty1, currentx1, currenty1);
                        
-                    // System.Threading.Thread.Sleep(50);
                     lastx1 = currentx1;
                     lasty1 = currenty1;
                 }
@@ -186,6 +185,31 @@ namespace WpfApplication1
         private void startup2()
         {
             timer2.Start();
+        }
+
+        private void start_MouseEnter(object sender, MouseEventArgs e)
+        {
+            tip.Content = "点击开始进行演示";
+        }
+
+        private void end_MouseEnter(object sender, MouseEventArgs e)
+        {
+            tip.Content = "点击终止演示";
+        }
+
+        private void start_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void start_MouseLeave(object sender, MouseEventArgs e)
+        {
+            tip.Content = "";
+        }
+
+        private void end_MouseLeave(object sender, MouseEventArgs e)
+        {
+            tip.Content = "";
         }
     }
 }
