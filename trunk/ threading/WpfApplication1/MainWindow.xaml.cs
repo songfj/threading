@@ -169,6 +169,9 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            load loadData = new load();
+            loadData.ShowDialog();
+
             status.Content = "程序正在演示.....";
             System.Threading.Thread sub = new System.Threading.Thread(new ThreadStart(startup1));
             sub.Start();
@@ -199,7 +202,11 @@ namespace WpfApplication1
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
-            
+            timer1.Stop();
+            timer2.Stop();
+            conn1.Close();
+            conn2.Close();
+            Can.Children.Clear();
         }
 
         private void start_MouseLeave(object sender, MouseEventArgs e)

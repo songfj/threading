@@ -29,7 +29,7 @@
             </Grid.ColumnDefinitions>
             <Canvas Grid.Column="0" Grid.ColumnSpan="1" x:Name="Can" Background="LightCyan"/>
             <Canvas Grid.Column="2">
-                <Button Width="100" Height="30" Canvas.Right="0" Canvas.Top="193" Content="结束演示" 
+                <Button Width="100" Height="30" Canvas.Right="0" Canvas.Top="193" Content="终止演示" 
                         x:Name="start" Click="start_Click"  MouseEnter="start_MouseEnter" MouseLeave="start_MouseLeave"/>
                 <Button Width="100" Height="30" Canvas.Right="0" Canvas.Top="123" Content="开始演示" 
                         x:Name="end"  Click="Button_Click" MouseEnter="end_MouseEnter" MouseLeave="end_MouseLeave"/>

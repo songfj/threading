@@ -11,11 +11,12 @@
         </Grid.ColumnDefinitions>
 
         <Canvas Grid.Column="1">
-            <ProgressBar Canvas.Top="27" Canvas.Left="20" Height="20" Width="258" Value="0" x:Name="bar0"/>
+            <Label Content="加载左边数据:" Canvas.Top="23"/>
+            <Label Content="加载右边数据:" Canvas.Top="69"/>
+            <ProgressBar Canvas.Top="27" Canvas.Left="86" Height="20" Width="207" Value="0" x:Name="bar0"/>
             <Label Height="20" Canvas.Left="295" Canvas.Top="27" Content="0.00%" FontSize="9" x:Name="barValue0"/>
             <Button Width="70" Height="31" Canvas.Left="137" Canvas.Top="146" Content="完成" x:Name="Finish" Click="Finish_Click"/>
-      <!--      <Button Canvas.Left="248" Canvas.Top="146" Height="31" Width="70" Content="取消" x:Name="Cancel" Click="Cancel_Click"/>-->
-            <ProgressBar Canvas.Left="20" Canvas.Top="73" Height="20" Name="bar1" Value="0" Width="258" />
+            <ProgressBar Canvas.Left="85" Canvas.Top="73" Height="20" Name="bar1" Value="0" Width="207" />
             <Label Canvas.Left="295" Canvas.Top="73" Content="0.00%" FontSize="9" Height="20" Name="barValue1" />
         </Canvas>
     </Grid>

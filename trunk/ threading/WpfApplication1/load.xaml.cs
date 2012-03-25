@@ -33,7 +33,6 @@ namespace WpfApplication1
 
             /*按钮的初始状态*/
             Finish.IsEnabled = false;
-          //  Cancel.IsCancel = true;
             /*将计算函数加入线程*/
             thread = new Thread(new ThreadStart(LoadData));
             timer = new System.Windows.Threading.DispatcherTimer();
