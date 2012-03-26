@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_2E0B4F698D7B44D1887433BEF5836400"
+        "MsmKey" = "8:_5894EB08E950466B94E535D435678105"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_87CF85CC8AA208C7AFF7D312CC09143A"
-        "OwnerKey" = "8:_2E0B4F698D7B44D1887433BEF5836400"
+        "OwnerKey" = "8:_5894EB08E950466B94E535D435678105"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,7 +34,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2E0B4F698D7B44D1887433BEF5836400"
+        "OwnerKey" = "8:_5894EB08E950466B94E535D435678105"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -121,14 +121,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2E0B4F698D7B44D1887433BEF5836400"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5894EB08E950466B94E535D435678105"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:WpfApplication1, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_2E0B4F698D7B44D1887433BEF5836400"
+                    "_5894EB08E950466B94E535D435678105"
                     {
                     "Name" = "8:WpfApplication1.exe"
                     "Attributes" = "3:512"
@@ -240,7 +240,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{70B62C1D-57C2-4A8D-B326-70F059BCE4BA}"
-        "PackageCode" = "8:{D01D31AF-D986-4D89-B03E-57E8FC14A17B}"
+        "PackageCode" = "8:{50A537A4-B4ED-4F93-B2E6-48C9244187BF}"
         "UpgradeCode" = "8:{CE2F31CA-2624-45A3-A02F-AACA6AA7956C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -248,12 +248,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:默认公司名称"
+        "Manufacturer" = "8:宇牧创新团队"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:默认公司名称"
+        "ARPCONTACT" = "8:NUAA"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
